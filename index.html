@@ -33,5 +33,22 @@ h3{color:#5b21b6}
 <p>ChatGPT مساعد ذكي وليس بديل عن المطور</p>
 <p style="text-align:center; color:#5b21b6; font-weight:bold">تحت إشراف د. مها زغلول</p>
 </div>
+<script>
+document.querySelectorAll('.card').forEach(card => {
+  let h = card.querySelector('h3');
+  if(!h) return;
+  let div = document.createElement('div');
+  [...card.children].forEach(el => {
+    if(el !== h) div.appendChild(el);
+  });
+  card.appendChild(div);
+  div.style.display = 'none';
+  h.style.cursor = 'pointer';
+  h.innerHTML = h.innerHTML + ' ▼';
+  h.onclick = () => {
+    div.style.display = div.style.display === 'none' ? 'block' : 'none';
+  };
+});
+</script>
 </body>
 </html>
